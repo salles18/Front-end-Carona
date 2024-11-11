@@ -97,7 +97,7 @@ export default function HomePassageiro() {
                 />
               </div>
               <Button type="submit" className="mb-[2px]">
-                <Search className="h-5 w-5" />
+                <Search className="h-5 w-9" />
               </Button>
             </div>
           </div>

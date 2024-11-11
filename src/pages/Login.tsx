@@ -38,7 +38,7 @@ export default function Login() {
       }, 2000); // Aguarda 2 segundos antes de redirecionar
     } catch (error) {
       console.error('Erro ao fazer login:', error);
-      setErro('Email ou senha incorretos');
+      setErro('E-mail ou senha incorretos');
     }
   };
 
@@ -58,14 +58,14 @@ export default function Login() {
         <div className="flex-1">
           <div className="flex flex-col items-center mb-8">
             <Car size={48} className="text-[#FF7E39] mb-2" />
-            <h1 className="text-2xl font-bold text-gray-800">Bem-vindo!</h1>
+            <h1 className="text-2xl font-bold text-gray-800">Bem-vindo(a)!</h1>
             <p className="text-gray-600">Faça login para continuar</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Email
+                E-mail:
               </label>
               <input
                 type="email"
@@ -79,7 +79,7 @@ export default function Login() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Senha
+                Senha:
               </label>
               <div className="relative">
                 <input

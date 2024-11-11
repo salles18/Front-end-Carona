@@ -113,7 +113,7 @@ export default function Registro() {
               required
             />
             <Input
-              label="Email"
+              label="E-mail"
               type="email"
               name="email"
               value={formData.email}
