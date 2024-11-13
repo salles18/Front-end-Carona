@@ -40,7 +40,7 @@ export function Navbar() {
             
             {/* Link para PerfilPassageiro */}
             <Link
-              to="/perfilpassageiro"
+              to="/PerfilPassageiro"
               className="flex items-center px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100"
             >
               <User className="h-5 w-5 mr-1" />

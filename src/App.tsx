@@ -5,7 +5,8 @@ import Registro from './pages/Registro';
 import HomeMotorista from './pages/HomeMotorista';
 import HomePassageiro from './pages/HomePassageiro';
 import RecuperarSenha from './pages/RecuperarSenha';
-import PrivateRoute from './components/PrivateRoute'; // Importe o PrivateRoute
+import PrivateRoute from './components/PrivateRoute';
+import PerfilPassageiro from './pages/PerfilPassageiro'; // Importe o PrivateRoute
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         {/* Rotas privadas */}
         <Route path="/homemotorista" element={<PrivateRoute element={<HomeMotorista />} />} />
         <Route path="/homepassageiro" element={<PrivateRoute element={<HomePassageiro />} />} />
+        <Route path="/perfilpassageiro" element={<PrivateRoute element={<PerfilPassageiro />} />} />
       </Routes>
     </BrowserRouter>
   );
