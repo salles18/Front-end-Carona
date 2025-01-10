@@ -7,6 +7,8 @@ import HomePassageiro from './pages/HomePassageiro';
 import RecuperarSenha from './pages/RecuperarSenha';
 import PrivateRoute from './components/PrivateRoute';
 import PerfilPassageiro from './pages/PerfilPassageiro'; // Importe o PrivateRoute
+import PerfilMotorista from './pages/PerfilMotorista';
+import MinhasCaronasPassageiro from './pages/MinhascaronasPassageiro';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route path="/homemotorista" element={<PrivateRoute element={<HomeMotorista />} />} />
         <Route path="/homepassageiro" element={<PrivateRoute element={<HomePassageiro />} />} />
         <Route path="/perfilpassageiro" element={<PrivateRoute element={<PerfilPassageiro />} />} />
+        <Route path="/perfilmotorista" element={<PrivateRoute element={<PerfilMotorista />} />} />
+        <Route path="/minhascaronaspassageiro" element={<PrivateRoute element={<MinhasCaronasPassageiro />} />} />
       </Routes>
     </BrowserRouter>
   );

@@ -56,7 +56,12 @@ const PerfilPassageiro: React.FC = () => {
   const handleSave = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.put('http://localhost:5000/api/user', userData);
+      const response = await axios.put('http://localhost:5000/api/user', userData, 
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        });
       setUserData(response.data);
       setMessage('Informações atualizadas com sucesso!');
     } catch (error) {
@@ -70,8 +75,8 @@ const PerfilPassageiro: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#FF7E39] to-[#48C9A9] ">
       <Navbar />
-      <div className="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">Editar Perfil</h2>
+      <div className="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto mt-7">
+        <h2 className="text-2xl font-bold text-gray-800 mb-4">Editar suas Informações</h2>
         {message && <p className="text-center text-green-600 mb-4">{message}</p>}
         <form onSubmit={handleSave} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -107,7 +112,7 @@ const PerfilPassageiro: React.FC = () => {
               required
             />
             <Input
-              label="Cidade"
+              label="Cidade e Estado"
               name="cidade"
               value={userData.cidade}
               onChange={handleChange}
@@ -121,7 +126,7 @@ const PerfilPassageiro: React.FC = () => {
               required
             />
             <Input
-              label="Logradouro"
+              label="Rua e Número"
               name="logradouro"
               value={userData.logradouro}
               onChange={handleChange}

@@ -54,20 +54,18 @@ export default function Registro() {
     try {
       const response = await axios.post('http://localhost:5000/api/auth/register', formData);
       console.log('Usuário registrado com sucesso:', response.data);
+      
+      localStorage.setItem('user', JSON.stringify(response.data));
 
-      setSucesso('Usuário registrado com sucesso!');
-      setTimeout(() => {
-        // Redireciona para a página correta com base no tipo de usuário
-        if (tipoUsuario === 'passageiro') {
-          navigate('/homepassageiro');
-        } else if (tipoUsuario === 'motorista') {
-          navigate('/homemotorista');
-        }
-      }, 3000); // Redireciona após 2 segundos para que a mensagem de sucesso seja visível
-    } catch (error) {
-      console.error('Erro ao registrar usuário:', error);
-    }
-  };
+      setSucesso('Usuário registrado com sucesso! Redirecionando para o login...');
+    setTimeout(() => {
+      // Redirecionar todos os usuários para a página de login
+      navigate('/');
+    }, 3000); // 3 segundos para mostrar mensagem de sucesso
+  } catch (error) {
+    console.error('Erro ao registrar usuário:', error);
+  }
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#FF7E39] to-[#48C9A9] py-8 px-4">
@@ -155,7 +153,7 @@ export default function Registro() {
               required
             />
             <Input
-              label="Cidade"
+              label="Cidade e Estado"
               name="cidade"
               value={formData.cidade}
               onChange={handleChange}
@@ -169,7 +167,7 @@ export default function Registro() {
               required
             />
             <Input
-              label="Logradouro"
+              label="Rua e Número"
               name="logradouro"
               value={formData.logradouro}
               onChange={handleChange}
